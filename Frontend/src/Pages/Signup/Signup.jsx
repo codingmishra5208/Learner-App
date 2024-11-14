@@ -23,7 +23,7 @@ const Signup = () => {
              email:data.email,
              password:data.password,
           }
-         await axios.post('http://localhost:3014/signup',userInfo)
+         await axios.post('http://localhost:8080/signup',userInfo)
            .then((res)=>{
              console.log(res.data)
               if(res.data){

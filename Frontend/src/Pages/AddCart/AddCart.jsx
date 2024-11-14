@@ -19,26 +19,26 @@ const AddCart = ({
   return (
     <>
       <div className="max-w-screen-2xl container mx-auto md:px-5 py-20 bg-lime-50">
-        <div className="container mx-auto mt-10">
-          <div className="flex flex-col md:flex-row shadow-md gap-3 my-10">
-            <div className="w-full md:w-3/4 bg-white px-4 py-10 md:px-10">
+        <div className="container mx-auto mt-10 ">
+          <div className="flex flex-col md:flex-row shadow-md gap-3 my-10 ">
+            <div className="w-full md:w-3/4 bg-white px-4 py-10 md:px-10 dark:bg-slate-900">
               <div className="flex justify-between border-b pb-8">
-                <h1 className="font-semibold text-xl md:text-2xl">Shopping Cart</h1>
-                <h2 className="font-semibold text-xl md:text-2xl uppercase">
+                <h1 className="font-semibold text-xl md:text-2xl dark:text-white">Shopping Cart</h1>
+                <h2 className="font-semibold text-xl md:text-2xl uppercase dark:text-white">
                   {cart.length} Items
                 </h2>
               </div>
               <div className="flex mt-10 mb-5">
-                <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">
+                <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5 dark:text-white">
                   Course
                 </h3>
-                <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5">
+                <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 dark:text-white">
                   Quantity
                 </h3>
-                <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5">
+                <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 dark:text-white">
                   Price
                 </h3>
-                <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5">
+                <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 dark:text-white">
                   Total
                 </h3>
               </div>
@@ -50,31 +50,31 @@ const AddCart = ({
                       <img className="h-24 object-contain" src={cartItem.image} alt="" />
                     </div>
                     <div className="flex flex-col justify-between ml-2 md:ml-4 flex-grow">
-                      <span className="font-bold md:text-sm text-xs">{cartItem.name}</span>
-                      <span className="text-red-500 text-xs">Brand Name</span>
+                      <span className="font-bold md:text-sm text-xs dark:text-white">{cartItem.name}</span>
+                      <span className="text-red-500 text-xs dark:text-white">Brand Name</span>
                       <a
                         href="#"
-                        className="font-semibold hover:text-red-500 text-gray-500 text-xs"
+                        className="font-semibold hover:text-red-500 text-gray-500 text-xs dark:text-white"
                         onClick={() => handleRemove(cartItem.id)}
                       >
                         Remove
                       </a>
                     </div>
                   </div>
-                  <div className="flex justify-center w-1/5 gap-1">
+                  <div className="flex justify-center w-1/5 gap-1 dark:text-white">
                     <button className="border px-2 py-1" onClick={() => handleDec(cartItem.id)}>-</button>
                     <button className="px-2">{cartItem.quantity}</button>
                     <button className="border px-2 py-1" onClick={() => handleInc(cartItem.id)}>+</button>
                   </div>
-                  <span className="text-center w-1/5 font-semibold text-sm">{cartItem.price}</span>
-                  <span className="text-center w-1/5 font-semibold text-sm">
+                  <span className="text-center w-1/5 font-semibold text-sm dark:text-white">{cartItem.price}</span>
+                  <span className="text-center w-1/5 font-semibold text-sm dark:text-white">
                     {parseFloat(cartItem.price) * cartItem.quantity} Rs.
                   </span>
                 </div>
               ))}
 
               <p
-                className="flex font-semibold text-indigo-600 text-sm mt-10 cursor-pointer"
+                className="flex font-semibold text-indigo-600 text-sm mt-10 cursor-pointer dark:text-white"
                 onClick={() => navigate("/course")}
               >
                 <svg className="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512">
@@ -84,20 +84,20 @@ const AddCart = ({
               </p>
             </div>
 
-            <div id="summary" className="md:w-1/4 px-4 py-10 mt-10 md:mt-0 bg-white">
-              <h1 className="font-semibold text-xl md:text-2xl border-b pb-8">Order Summary</h1>
+            <div id="summary" className="md:w-1/4 px-4 py-10 mt-10 md:mt-0 bg-white dark:bg-slate-900">
+              <h1 className="font-semibold text-xl md:text-2xl border-b pb-8 dark:text-white">Order Summary</h1>
               <div className="flex justify-between mt-10 mb-5">
-                <span className="font-semibold text-sm uppercase">Item {cart.length}</span>
-                <span className="font-semibold text-sm">{getTotalPrice()}</span>
+                <span className="font-semibold text-sm uppercase dark:text-white">Item {cart.length}</span>
+                <span className="font-semibold text-sm dark:text-white">{getTotalPrice()}</span>
               </div>
               <div>
-                <label className="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
-                <select className="block p-2 text-gray-600 w-full text-sm">
+                <label className="font-medium inline-block mb-3 text-sm uppercase dark:text-white">Shipping</label>
+                <select className="block p-2 text-gray-600 w-full text-sm ">
                   <option>Standard shipping - 10.00 Rs</option>
                 </select>
               </div>
               <div className="py-10">
-                <label htmlFor="promo" className="font-semibold inline-block mb-3 text-sm uppercase">Promo Code</label>
+                <label htmlFor="promo" className="font-semibold inline-block mb-3 text-sm uppercase dark:text-white">Promo Code</label>
                 <input
                   type="text"
                   id="promo"
@@ -113,7 +113,7 @@ const AddCart = ({
                 )}
                 <hr />
                 {promocode === "DISCOUNT10" && (
-                  <span className="text-green-500">Promo code applied successfully</span>
+                  <span className="text-green-500 dark:text-white">Promo code applied successfully</span>
                 )}
               </div>
 
@@ -124,7 +124,7 @@ const AddCart = ({
                 Apply
               </button>
               <div className="border-t mt-8">
-                <div className="flex font-semibold justify-between py-6 text-sm uppercase">
+                <div className="flex font-semibold justify-between py-6 text-sm uppercase dark:text-white">
                   <span>Total cost</span>
                   <span className="lowercase">{getTotalPlusTen()}</span>
                 </div>

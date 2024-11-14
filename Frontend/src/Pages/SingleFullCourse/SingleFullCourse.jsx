@@ -9,7 +9,7 @@ const SingleFullCourse = () => {
   useEffect(() => {
     const fetchDetails = async () => {
       const response = await fetch(
-        `http://localhost:3014/fullcourse/${param.name}`
+        `http://localhost:8080/fullcourse/${param.name}`
       );
       const data = await response.json();
       setProduct(data);

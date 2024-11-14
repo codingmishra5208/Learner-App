@@ -72,7 +72,7 @@ const Navbar = ({ cart }) => {
               </svg>
             </button>
             {dropdownOpen && (
-              <ul className="menu menu-sm dropdown-content rounded-box z-[1] text-white bg-[#002733] mt-3 w-56 p-3 shadow transition-all duration-300 ease-in-out font-mono">
+              <ul className={`menu menu-sm dropdown-content rounded-box z-[1] text-white bg-[#002733] mt-3 w-56 p-3 shadow transition-all duration-300 ease-in-out font-mono ${dropdownOpen ? 'open' : ''}`}>
                 {NavItems}
               </ul>
             )}

@@ -8,7 +8,7 @@ const pic2="https://static.uacdn.net/production/_next/static/images/home-illustr
 const Banner = () => {
   return (
     <>
-    <div className='max-w-screen-2xl container mx-auto md:px-20 px-4 py-24 flex flex-col md:flex-row bg-[#FFEFE0] dark:bg-slate-900 dark:text-white'>
+    <div className='max-w-screen-2xl container mx-auto md:px-20 px-4 py-8 mt-10 flex flex-col md:flex-row bg-[#FFEFE0] dark:bg-slate-900 dark:text-white'>
        <div className='w-full md:w-1/2 py-12 md:py-24 order-2 md:order-1'>
        <p className='font-font text-sm md:text-[20px] font-bold bg-gradient-to-r from-cyan-800 to-pink-600 bg-clip-text text-transparent dark:text-white'>
         FIGURATIVE POTENTIALS WITH ONLINE LEARNING

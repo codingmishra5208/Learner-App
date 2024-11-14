@@ -15,7 +15,7 @@ const Advantage = () => {
            <div className='flex flex-col md:flex-row justify-between gap-10 py-10 md:py-16 px-10'>
 
                  <div className='md:w-1/4 flex flex-col items-center gap-3'>
-                     <img src={img} alt="" />    
+                     <img src={img}  alt="" />    
                       <h1 className='text-[20px] md:text-xl text-gray-700 text-center dark:text-white'>
                         Conceptual clarity through visualisation
                         </h1> 

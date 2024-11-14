@@ -43,7 +43,7 @@ const Comments = () => {
       }
 
   return (
-    <div className='max-w-screen-2xl container mx-auto md:px-40 px-4 py-10 dark:bg-slate-900'>
+    <div className='max-w-screen-2xl container mx-auto md:px-40 px-4 py-14 dark:bg-slate-900'>
         <h1 className='font-bold text-3xl text-gray-700 inline-flex dark:text-white'>
             Our Review
             <img src={img4} className='ml-3 w-10'  alt="" /> 

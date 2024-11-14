@@ -8,19 +8,22 @@ import Stats from '../../Components/Stats/Stats'
 import Advantage from '../../Components/Advantage/Advantage'
 import Comments from '../../Components/Comments/Comments'
 import SocialIcons from '../../Components/SocialLink/SocialLink'
-
+import Unqiue from '../../Components/Unique/Unqiue'
+import AskQuestion from '../../Components/AskQuestion/AskQuestion'
 
 const Home = () => {
   return (
     <div>
         <SocialIcons/>
+         <AskQuestion/>
           <Banner/>
            <Hero/>
             <Explore/>
              <Card/>
               <Advantage/>
-               <Stats/>
+              <Unqiue/>
                 <Comments/>
+                <Stats/>   
           <Footer/>
         </div>
   )

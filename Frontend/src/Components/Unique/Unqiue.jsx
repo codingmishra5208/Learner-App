@@ -8,15 +8,15 @@ const img2 =
 
 const Unqiue = () => {
   return (
-    <div className="max-w-screen-2xl container mx-auto md:px-24 px-4 py-10 bg-[#FAFAFA]">
+    <div className="max-w-screen-2xl container mx-auto md:px-24 px-4 py-10 bg-[#FAFAFA]  dark:bg-slate-900 dark:text-white ">
       <div className="flex md:flex-row flex-col justify-between">
         <div className="md:w-1/2">
          <img src={img2} alt="" />
-          <h2 className="font-bold text-2xl mt-3 text-gray-700">
+          <h2 className="font-bold text-2xl mt-3 text-gray-700 dark:text-white">
             Whats Makes Us{" "}
             <span className="text-[#FF693D] text-3xl">Unique</span>
           </h2>
-          <p className="text-justify md:mt-10 mt-7  text-gray-600">
+          <p className="text-justify md:mt-10 mt-7  text-gray-600 dark:text-white">
             Welcome to Online Learner's Hub, a renowned online education portal
             navigating the academic landscape in the contemporary world. At
             Online Learner's Hub, we have expertise in guiding students through
@@ -25,7 +25,7 @@ const Unqiue = () => {
             we offer personalized assistance to students that is tailored to
             their unique aspirations and academic profiles.
           </p>
-          <p className="text-justify mt-5  text-gray-600">
+          <p className="text-justify mt-5  text-gray-600 dark:text-white">
             Whether you’re willing to gain admission to an esteemed university,
             prestigious college, or a specialized program, we are here to help
             in assisting you to pave the path to success with our tailored

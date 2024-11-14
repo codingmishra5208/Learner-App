@@ -5,6 +5,7 @@ import  axios  from "axios";
 import toast from "react-hot-toast";
 
 const Login = () => {
+ 
   const {
     register,
     handleSubmit,
@@ -17,7 +18,7 @@ const Login = () => {
       email:data.email,
       password:data.password, 
    }  
-  await axios.post('http://localhost:3014/login',userInfo)
+  await axios.post('http://localhost:8080/login',userInfo)
     .then((res)=>{
        if(res.data){
          toast.success("Login Successfull");
@@ -35,6 +36,11 @@ const Login = () => {
            setTimeout(() => {},3000)
        }
     })
+  }
+
+  const closeModal=()=>{
+   document.getElementById("my_modal_3").close();
+
   }
   return (
     <>
@@ -87,6 +93,7 @@ const Login = () => {
                 Not registered?
                 <Link
                   to="/signup"
+                  onClick={closeModal}
                   className="underline text-blue-500 font-bold font-Font cursor-pointer"
                 >
                   Signup

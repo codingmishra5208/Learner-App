@@ -10,7 +10,7 @@ const Card = () => {
   useEffect(() => {
     const getBook = async () => {
       try {
-        const res = await axios.get("http://localhost:3014/paidcourse");
+        const res = await axios.get("http://localhost:8080/paidcourse");
         
         setItem(res.data);
       } catch (error) {
