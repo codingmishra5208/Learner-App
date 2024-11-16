@@ -7,7 +7,7 @@ const nodemailer = require('nodemailer');
 const Stripe = require('stripe')('sk_test_51QLJU7HJKt2GlWL9mmKsrQNIO4BPC68FmuwXVZb4PyqQaxfSsa39QXygZAcJjP8nFMfrrLJ1KKZO3AP1oIWqNlV700cveeUbgg');
 
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 10000;
 
 app.use(cors());
  
@@ -79,10 +79,9 @@ app.post('/payment', async (req, res) => {
 
 
 
-app.listen(PORT,()=>{
- console.log("server is running",PORT);
 
-})
-
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 
