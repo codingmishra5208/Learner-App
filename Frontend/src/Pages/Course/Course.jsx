@@ -16,7 +16,7 @@ const Course = ({AddtoCart}) => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await axios.get("http://localhost:3014/fullcourse");
+        const res = await axios.get("http://localhost:8080/fullcourse");
         setItems(res.data);
       } catch (error) {
         console.log(error);

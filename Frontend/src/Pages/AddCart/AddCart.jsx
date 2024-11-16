@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "../../Components/Footer/Footer";
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const AddCart = ({
   cart,
@@ -15,7 +16,10 @@ const AddCart = ({
   invalid,
 }) => {
   const navigate = useNavigate();
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
+  
   return (
     <>
       <div className="max-w-screen-2xl container mx-auto md:px-5 py-20 bg-lime-50">
@@ -88,16 +92,16 @@ const AddCart = ({
               <h1 className="font-semibold text-xl md:text-2xl border-b pb-8 dark:text-white">Order Summary</h1>
               <div className="flex justify-between mt-10 mb-5">
                 <span className="font-semibold text-sm uppercase dark:text-white">Item {cart.length}</span>
-                <span className="font-semibold text-sm dark:text-white">{getTotalPrice()}</span>
+                <span className="font-semibold text-sm">{getTotalPrice()}</span>
               </div>
               <div>
-                <label className="font-medium inline-block mb-3 text-sm uppercase dark:text-white">Shipping</label>
-                <select className="block p-2 text-gray-600 w-full text-sm ">
+                <label className="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
+                <select className="block p-2 text-gray-600 w-full text-sm">
                   <option>Standard shipping - 10.00 Rs</option>
                 </select>
               </div>
               <div className="py-10">
-                <label htmlFor="promo" className="font-semibold inline-block mb-3 text-sm uppercase dark:text-white">Promo Code</label>
+                <label htmlFor="promo" className="font-semibold inline-block mb-3 text-sm uppercase">Promo Code</label>
                 <input
                   type="text"
                   id="promo"
@@ -113,7 +117,7 @@ const AddCart = ({
                 )}
                 <hr />
                 {promocode === "DISCOUNT10" && (
-                  <span className="text-green-500 dark:text-white">Promo code applied successfully</span>
+                  <span className="text-green-500">Promo code applied successfully</span>
                 )}
               </div>
 
@@ -124,11 +128,12 @@ const AddCart = ({
                 Apply
               </button>
               <div className="border-t mt-8">
-                <div className="flex font-semibold justify-between py-6 text-sm uppercase dark:text-white">
+                <div className="flex font-semibold justify-between py-6 text-sm uppercase">
                   <span>Total cost</span>
                   <span className="lowercase">{getTotalPlusTen()}</span>
                 </div>
-                <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
+                <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm
+                 text-white uppercase w-full">
                   Checkout
                 </button>
               </div>

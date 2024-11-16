@@ -5,7 +5,11 @@ import { useAuth } from "../../context/AuthProvider";
 import Logout from "../Logout/Logout";
 import { CiShoppingCart } from "react-icons/ci";
 
+
 const Navbar = ({ cart }) => {
+
+
+
   const [authUser, setAuthUser] = useAuth();
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const element = document.documentElement;
@@ -35,7 +39,7 @@ const Navbar = ({ cart }) => {
   }, []);
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
+   const name = localStorage.getItem("fullname");
   const NavItems = (
     <>
       <Link to='/' onClick={() => setDropdownOpen(false)}>
@@ -55,11 +59,13 @@ const Navbar = ({ cart }) => {
 
   return (
     <div className={`max-w-screen-2xl container mx-auto dark:bg-slate-900 dark:text-white fixed top-0 left-0 right-0 z-50 ${sticky ? "sticky-navbar shadow-md bg-base-200 dark:bg-slate-600 dark:text-white duration-300 transition-all ease-in-out drop-shadow-sm" : ""}`}>
-      <div className="navbar bg-base-100 font-Font md:px-12 px-3 py-3 dark:bg-slate-900 dark:text-white flex justify-between items-center">
+      <div className="navbar bg-base-100 font-Font md:px-12 px-3 py-3 dark:bg-slate-900 dark:text-white flex justify-between  items-center">
         {/* Logo Section */}
         <div className="navbar-start flex items-center">
           <Link to='/'>
-            <a className="text-xl sm:text-2xl font-Font font-bold cursor-pointer">Learner</a>
+            <a className="text-xl sm:text-2xl md:ml-5 cursor-pointer font-semibold bg-gradient-to-r from-cyan-700 to-pink-600 bg-clip-text text-transparent">Learner's</a>
+            <p className="font-semibold text-orange-500 md:block hidden">College ab aapke dwar</p>
+             
           </Link>
           <div className="dropdown ml-4">
             <button
@@ -137,6 +143,7 @@ const Navbar = ({ cart }) => {
             )
           }
         </div>
+        <span>{name}</span>
       </div>
     </div>
   );

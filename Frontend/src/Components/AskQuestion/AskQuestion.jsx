@@ -27,7 +27,7 @@ const AskQuestion = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3015/questions', { question });
+            const response = await axios.post('http://localhost:8080/questions', { question });
             setSuccessMessage(response.data.message);
             setQuestion('');
             setErrorMessage('');

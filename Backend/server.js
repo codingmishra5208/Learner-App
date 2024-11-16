@@ -4,6 +4,8 @@ const app = express();
 require('dotenv').config();
 const db = require('./db'); 
 const nodemailer = require('nodemailer');
+const Stripe = require('stripe')('sk_test_51QLJU7HJKt2GlWL9mmKsrQNIO4BPC68FmuwXVZb4PyqQaxfSsa39QXygZAcJjP8nFMfrrLJ1KKZO3AP1oIWqNlV700cveeUbgg');
+
 
 const PORT = process.env.PORT || 3001;
 
@@ -57,6 +59,23 @@ app.post('/questions', async (req, res) => {
     }
 });
 
+
+//Payement krne ke liye hai ye ...
+app.post('/payment', async (req, res) => {
+    const { amount, token } = req.body;
+
+    try {
+        const charge = await Stripe.charges.create({
+            amount, // Amount in cents
+            currency: 'inr',
+            source: token.id,
+            description: 'Payment Description',
+        });
+        res.status(200).json(charge);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
 
 
 

@@ -43,7 +43,7 @@ const Enrollment = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch('http://localhost:3014/Admission', {
+      const response = await fetch('http://localhost:8080/Admission', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
