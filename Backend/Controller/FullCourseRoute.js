@@ -9,7 +9,6 @@ const express = require('express');
            const newfullcourse = new fullcourse(data);
 
            const response = await newfullcourse.save();
-            console.log("data saved");
             res.status(200).json(response);
      }catch(err){
         console.log(err);

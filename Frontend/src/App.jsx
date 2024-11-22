@@ -13,6 +13,9 @@ import 'aos/dist/aos.css';
 import SingleFullCourse from "./Pages/SingleFullCourse/SingleFullCourse";
 import AddCart from "./Pages/AddCart/AddCart";
 import Navbar from "./Components/Navbar/Navbar";
+import BlogPage from "./Pages/Blog/BlogPage";
+import SingleBlog from "./Pages/SingleBlog/SingleBlog";
+
 
 const App = () => {
    const [cart, setCart] = useState([]);
@@ -93,7 +96,9 @@ const App = () => {
                <Route path='/' element={<Home />} />
                <Route path='/course' 
                    element={authUser ? <Course AddtoCart={AddtoCart} cart={cart} /> : <Navigate to='/signup' />} />
-               <Route path='/signup' element={<Signup />} />
+
+             
+
                <Route path='/about' 
                    element={authUser ? <About /> : <Navigate to='/signup' />} />
                <Route path="/paidcourse/:name" element={<SingleCourse />} />
@@ -111,10 +116,16 @@ const App = () => {
                    setPromoCode={setPromoCode}
                    invalid={invalid} 
                />} />
+
+               <Route path='/blog'
+                element={authUser ? <BlogPage/> : <Navigate to='/singup' />} />
+                <Route path="/singleblog/:_id" element={<SingleBlog/>} />
              
+                <Route path='/signup' element={<Signup />} />
            </Routes>
            <Toaster />
        </div>
+          
    );
 };
 

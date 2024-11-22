@@ -1,51 +1,51 @@
 const express = require('express');
 const cors = require('cors');
-const app = express();
-require('dotenv').config();
-const db = require('./db'); 
+const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
-const Stripe = require('stripe')('sk_test_51QLJU7HJKt2GlWL9mmKsrQNIO4BPC68FmuwXVZb4PyqQaxfSsa39QXygZAcJjP8nFMfrrLJ1KKZO3AP1oIWqNlV700cveeUbgg');
+require('dotenv').config();
+const db = require('./db'); // Ensure your db connection is set up properly
 
-
+const app = express();
 const PORT = process.env.PORT || 10000;
 
+// Middleware
 app.use(cors());
- 
-const bodyParser = require('body-parser'); 
-app.use(express.json())
+app.use(express.json());
 app.use(bodyParser.json());
 
-
+// Import Routes
 const paidCourse = require('./Controller/paidCourseRoute');
 const signUpRoutes = require('./Controller/signUpRoutes');
 const loginRoutes = require('./Controller/loginRoutes');
 const AdmissionRoutes = require('./Controller/AdmissionFormRoutes');
 const FullCourseRoute = require('./Controller/FullCourseRoute');
+const BlogRoutes = require('./Controller/BlogRoutes');
 
-app.use('/paidcourse',paidCourse);
-app.use('/paidcourse/:name',paidCourse);
-app.use('/signup',signUpRoutes);
-app.use('/login',loginRoutes);
-app.use('/Admission',AdmissionRoutes);    
-app.use('/fullcourse',FullCourseRoute);
-app.use('/fullcourse/:name',FullCourseRoute);
+// Route ko Define kiya hai ..isme
+app.use('/paidcourse', paidCourse);
+app.use('/signup', signUpRoutes);
+app.use('/login', loginRoutes);
+app.use('/admission', AdmissionRoutes);
+app.use('/fullcourse', FullCourseRoute);
+app.use('/blog', BlogRoutes);
 
-//Email Configuration...
+// Email Configuration
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'mishrashyam1968@gmail.com', // Your Gmail address
-        pass: 'mmix yyeh ilpa wtsv', // Your Gmail App Password
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS, 
     },
 });
 
+// Question Answer ka Route hai ye...
 app.post('/questions', async (req, res) => {
     const { question } = req.body;
 
-    // Send Email
+
     const mailOptions = {
-        from: 'mishrashyam1968@gmail.com',
-        to: 'mishrashyam1968@gmail.com', // Your Gmail address
+        from: process.env.EMAIL_USER,
+        to: process.env.EMAIL_USER, // Your Gmail address
         subject: 'New Question Submitted',
         text: `New Question: ${question}`,
     };
@@ -60,28 +60,6 @@ app.post('/questions', async (req, res) => {
 });
 
 
-//Payement krne ke liye hai ye ...
-app.post('/payment', async (req, res) => {
-    const { amount, token } = req.body;
-
-    try {
-        const charge = await Stripe.charges.create({
-            amount, // Amount in cents
-            currency: 'inr',
-            source: token.id,
-            description: 'Payment Description',
-        });
-        res.status(200).json(charge);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
-
-
-
-
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running on port ${PORT}`);
-});
-
-

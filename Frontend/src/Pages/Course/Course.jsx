@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../../Components/Navbar/Navbar";
-import Footer from "../../Components/Footer/Footer";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
@@ -67,7 +65,7 @@ const Course = ({AddtoCart}) => {
               <Link to={`/fullcourse/${data.name}`}
                className="flex-grow">
                 <img
-                  src={data.image}
+                  src={data.image} 
                   className="object-cover h-48 w-full rounded-md hover:scale-95 transition-transform duration-200 cursor-pointer"
                   alt={data.name}
                 />
@@ -89,7 +87,7 @@ const Course = ({AddtoCart}) => {
               </div>
             </div>
           ))}
-        
+
         </div>
         {/* Load More Property */}
         <div className="flex justify-center mt-5">
@@ -110,7 +108,7 @@ const Course = ({AddtoCart}) => {
           )}
         </div>
       </div>
-      <Footer />
+      
     </>
   );
 };
