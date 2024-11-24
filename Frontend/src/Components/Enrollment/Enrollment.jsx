@@ -82,6 +82,7 @@ const Enrollment = () => {
         
           <div className="md:border px-4 py-4">
           <h3 className="font-bold text-lg text-center">Learner's</h3>
+          <p className="font-semibold text-orange-500 text-center">College ab aapke dwar</p>
           <p className="py-4 text-center px-8 text-sm md:text-base text-gray-500">
             Need assistance? Fill out the form below to get personalized call from our experts.
             </p>

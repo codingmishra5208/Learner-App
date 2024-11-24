@@ -65,7 +65,7 @@ const BlogPage = () => {
          <div>
            <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 mt-5'>
              {filteredBlogs.slice(0, visibleCount).map((item) => (
-               <Link to={`/singleblog/${item._id}`} key={item.id} className='p-5 shadow-lg rounded cursor-pointer'>
+               <Link to={`/singleblog/${item._id}`} key={item._id} className='p-5 shadow-lg rounded cursor-pointer'>
                  <div>
                    <img src={item.image} alt="" className='w-full' />
                  </div>

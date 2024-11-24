@@ -3,7 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
-const db = require('./db'); // Ensure your db connection is set up properly
+const db = require('./db');
 
 const app = express();
 const PORT = process.env.PORT || 10000;
@@ -29,6 +29,8 @@ app.use('/admission', AdmissionRoutes);
 app.use('/fullcourse', FullCourseRoute);
 app.use('/blog', BlogRoutes);
 
+
+
 // Email Configuration
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -45,7 +47,7 @@ app.post('/questions', async (req, res) => {
 
     const mailOptions = {
         from: process.env.EMAIL_USER,
-        to: process.env.EMAIL_USER, // Your Gmail address
+        to: process.env.EMAIL_USER,
         subject: 'New Question Submitted',
         text: `New Question: ${question}`,
     };
@@ -53,6 +55,7 @@ app.post('/questions', async (req, res) => {
     try {
         await transporter.sendMail(mailOptions);
         res.status(201).send({ message: 'Question submitted and email sent!' });
+
     } catch (error) {
         console.error('Error sending email', error);
         res.status(500).send({ error: 'Failed to send email' });

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Blog = require('../models/Blog');
+const mongoose = require('mongoose');
 
 // Create a new blog
 router.post('/', async (req, res) => {
@@ -40,10 +41,17 @@ router.get('/category/:category', async (req, res) => {
     }
 });
 
+
 // Get a single blog by ID
 router.get('/:id', async (req, res) => {
     try {
         const { id } = req.params;
+
+        // Check if the ID is a valid ObjectId
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ error: "Invalid Blog ID" });
+        }
+
         const blog = await Blog.findById(id);
         if (!blog) {
             return res.status(404).json({ error: "Blog not found" });

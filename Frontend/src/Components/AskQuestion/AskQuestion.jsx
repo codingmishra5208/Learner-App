@@ -1,18 +1,18 @@
-// src/AskQuestion.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { RxCross2 } from "react-icons/rx";
+import toast from 'react-hot-toast';
 
 const img="https://downloads.intercomcdn.com/i/o/299002/b731a3f930a9ad910c9ee7e9/1a269b2104beaaafeea6644490b1e6eb.png";
 
-const AskQuestion = () => {
+const AskQuestion = () => { 
     const [question, setQuestion] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const [isOpen, setIsOpen] = useState(false); // For toggle
-
+    const [isOpen, setIsOpen] = useState(false);
+ 
     useEffect(() => {
-        // Body overflow control
+       
         if (isOpen) {
             document.body.style.overflow = 'hidden';
         } else {
@@ -24,14 +24,14 @@ const AskQuestion = () => {
         };
     }, [isOpen]);
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e) => { 
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:8080/questions', { question });
-            setSuccessMessage(response.data.message);
+            toast.success(response.data.message);
             setQuestion('');
             setErrorMessage('');
-            setIsOpen(false); // Close textarea after submission
+            setIsOpen(false); 
         } catch (error) {
             console.error('Error submitting question', error);
             setErrorMessage('Failed to submit question. Please try again.');
@@ -41,15 +41,15 @@ const AskQuestion = () => {
 
     return (
         <div className="fixed right-4 bottom-4 z-50">
-            {/* Overlay */}
+       
             {isOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setIsOpen(false)} />
             )}
             
-            {/* Main Content */}
+     
             {!isOpen ? (
                 <img
-                    src={img} // Replace with your image URL
+                    src={img} 
                     alt=""
                     onClick={() => setIsOpen(true)}
                     className="bg-[#001E2B] dark:text-slate-900 text-white w-12 px-2 py-2 rounded-full cursor-pointer"
