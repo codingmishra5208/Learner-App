@@ -1,21 +1,22 @@
 import React from "react";
-import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import { CiLocationArrow1 } from "react-icons/ci";
 
 const url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3569.2260548880827!2d80.48589067413435!3d26.545004875798398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c15b77b47f1db%3A0xb195ae5656cb2526!2sDhawan%20Rd%2C%20Unnao%2C%20Uttar%20Pradesh%20209801!5e0!3m2!1sen!2sin!4v1730697679146!5m2!1sen!2sin"       
-const Contact = () => {
 
+const Contact = () => {
+  const whatsappNumber = "9305949450";
+ const img="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1022px-WhatsApp.svg.png";
+ 
   return (
     <>
-    
       <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 py-36 bg-slate-50 dark:bg-slate-900 dark:text-white ">
         <h1  className="font-bold text-4xl ">Contact Us</h1>
         <p className="text-gray-600 text-md mt-5 dark:text-white">
-          This is the{" "}
+          This is the
           <span className="font-semibold text-black font-Font dark:text-white">
             official page of Learner's Academy,
-          </span>{" "}
+          </span>
           where you can share all your queries, feedback, complaints, or any
           concern you may have about our centers, courses, and programs.
         </p>
@@ -70,6 +71,21 @@ const Contact = () => {
               referrerPolicy="no-referrer-when-downgrade">
             </iframe>
           </div>
+        </div>
+         
+        <div className="">     
+            <a 
+                href={`https://wa.me/${whatsappNumber}`} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="fixed bottom-5 right-5 flex items-center justify-center w-16 h-16 bg-green-500 rounded-full shadow-lg transition-transform transform hover:scale-105"
+            >
+                <img 
+                    src={img}
+                    alt="WhatsApp" 
+                    className="w-8 h-8"
+                />
+            </a>
         </div>
       </div>
 
