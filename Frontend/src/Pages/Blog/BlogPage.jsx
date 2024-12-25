@@ -12,7 +12,7 @@ const BlogPage = () => {
    useEffect(() => {
      const fetchBlogs = async () => {
         try {
-          const res = await axios('http://localhost:8080/blog');
+          const res = await axios('http://localhost:9000/blog');
          
           setBlogs(res.data);
         } catch (err) {

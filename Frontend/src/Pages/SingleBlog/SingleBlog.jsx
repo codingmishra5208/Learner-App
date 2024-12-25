@@ -12,7 +12,7 @@ const SingleBlog = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/blog/${_id}`);
+        const response = await fetch(`http://localhost:9000/blog/${_id}`);
         if (!response.ok) {
           throw new Error("Failed to fetch");
         }

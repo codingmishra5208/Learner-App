@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Home from "./Pages/Home/Home";
+import Home from "./Pages/Home/Home"; 
 import Course from './Pages/Course/Course';
 import Signup from "./Pages/Signup/Signup";
 import About from "./Pages/About/About";
@@ -119,6 +119,7 @@ const App = () => {
 
                <Route path='/blog'
                 element={authUser ? <BlogPage/> : <Navigate to='/singup' />} />
+
                 <Route path="/singleblog/:_id" element={<SingleBlog/>} />
              
                 <Route path='/signup' element={<Signup />} />
